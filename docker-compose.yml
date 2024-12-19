@@ -1,0 +1,15 @@
+services:
+  frontend:
+    container_name: test-docker-vite
+    image: test-docker-vite
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+      - ./index.html:/app/index.html
+    ports:
+      - 80:80
+    env_file:
+      - .env
+    restart: on-failure
